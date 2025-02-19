@@ -1,80 +1,79 @@
 #include <string.h>
 #include <stdbool.h>
 
-size_t strlen(const char *fmt) {
-    if (!fmt) {
-        return 0;
-    }
+size_t strlen(const char *s)
+{
+	const char *tmp;
+	for (tmp = s; *tmp; ++tmp)
+		;
 
-    const char *s;
-    for (s = fmt; *s; ++s);
-
-    return (s - fmt);
+	return (tmp - s);
 }
 
-char *itoa (char *buf, int base, int d) {
-    char *p = buf;
-    char *p1, *p2;
-    unsigned long ud = d;
-    int divisor = 10;
-  
-  
-    if (base == 'd' && d < 0) {
-        *p++ = '-';
-        buf++;
-        ud = -d;
-    } else if (base == 'x') {
-        divisor = 16;
-    }
+char *itoa(char *buf, int base, int d)
+{
+	char *tmp = buf;
+	char *tmp1, *tmp2;
+	unsigned long ud = d;
+	int div = 10;
 
-    do {
-        int remainder = ud % divisor;
-      
-        *p++ = (remainder < 10) ? remainder + '0' : remainder + 'a' - 10;
-    } while (ud /= divisor);
+	if (base == 'd' && d < 0) {
+		*tmp++ = '-';
+		buf++;
+		ud = -d;
+	} else if (base == 'x') {
+		div = 16;
+	}
 
-    *p = 0;
-  
-    p1 = buf;
-    p2 = p - 1;
-    while (p1 < p2) {
-        char tmp = *p1;
-        *p1 = *p2;
-        *p2 = tmp;
-        p1++;
-        p2--;
-    }
+	do {
+		int rem = ud % div;
 
-    return buf;
+		*tmp++ = (rem < 10) ? rem + '0' : rem + 'a' - 10;
+	} while (ud /= div);
+
+	*tmp = 0;
+
+	tmp1 = buf;
+	tmp2 = tmp - 1;
+	while (tmp1 < tmp2) {
+		char tmp3 = *tmp1;
+		*tmp1 = *tmp2;
+		*tmp2 = tmp3;
+		tmp1++;
+		tmp2--;
+	}
+
+	return buf;
 }
 
-char *utoa (char *buf, int base, unsigned int d) {
-    char *p = buf;
-    char *p1, *p2;
-    unsigned long ud = d;
-    int divisor = 10;
-  
-    if (base == 'x') {
-        divisor = 16;
-    }
+char *utoa(char *buf, int base, unsigned int d)
+{
+	char *tmp = buf;
+	char *tmp1, *tmp2;
+	unsigned long ud = d;
+	int div = 10;
 
-    do {
-        int remainder = ud % divisor;
-      
-        *p++ = (remainder < 10) ? remainder + '0' : remainder + 'a' - 10;
-    } while (ud /= divisor);
+	if (base == 'x') {
+		div = 16;
+	}
 
-    *p = 0;
-  
-    p1 = buf;
-    p2 = p - 1;
-    while (p1 < p2) {
-        char tmp = *p1;
-        *p1 = *p2;
-        *p2 = tmp;
-        p1++;
-        p2--;
-    }
+	do {
+		int rem = ud % div;
 
-    return buf;
+		*tmp++ = (rem < 10) ? rem + '0' : rem + 'a' - 10;
+	} while (ud /= div);
+
+	*tmp = 0;
+
+	tmp1 = buf;
+	tmp2 = tmp - 1;
+	while (tmp1 < tmp2) {
+		char tmp3 = *tmp1;
+		*tmp1 = *tmp2;
+		*tmp2 = tmp3;
+		tmp1++;
+		tmp2--;
+	}
+
+	return buf;
 }

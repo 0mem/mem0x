@@ -1,5 +1,5 @@
-#ifndef __STDIO_H
-#define __STDIO_H
+#ifndef _STDIO_H
+#define _STDIO_H
 
 #include <dri/vga.h>
 #include <string.h>

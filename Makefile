@@ -13,7 +13,7 @@ c_object_files := $(patsubst src/%.c, \
 	build/%.o, $(c_source_files))
 
 CFLAGS := -std=gnu99 -ffreestanding -Wall -Wextra -nostdlib -nostdinc -nostartfiles -g
-INCLUDE := -I./include -I./src/lib -I./src
+INCLUDE := -I./include -I./include/lib
 
 .PHONY: all clean run debug iso
 

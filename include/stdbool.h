@@ -1,5 +1,5 @@
-#ifndef __STDBOOL_H
-#define __STDBOOL_H
+#ifndef _STDBOOL_H
+#define _STDBOOL_H
 
 typedef _Bool bool;
 

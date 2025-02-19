@@ -2,7 +2,7 @@ SECTION .text
 BITS 64
 GLOBAL long_mode_start
 
-EXTERN kernel_start
+EXTERN start_kernel
 
 long_mode_start:
     mov ax, 0x10
@@ -12,7 +12,7 @@ long_mode_start:
     mov fs, ax
     mov gs, ax
 
-    call kernel_start
+    call start_kernel
 
     hlt
 .halt:
