@@ -6,6 +6,6 @@
 
 extern void vga_write_string(const char *fmt, size_t len, ...);
 
-#define printk(fmt, ...) vga_write_string(fmt, strlen(fmt), ##__VA_ARGS__)
+#define printf(fmt, ...) vga_write_string(fmt, strlen(fmt), ##__VA_ARGS__)
 
 #endif
